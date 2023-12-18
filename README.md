@@ -13,7 +13,6 @@ exports.mana_audio:PlaySound({
     audioBank = 'myAudioBank',
     audioName = {'myAudioName1', 'myAudioName2'},
     audioRef = 'myAudioRef'
-    isNetworked = false, -- replicates sound to all clients
 })
 ```
 
@@ -26,7 +25,6 @@ exports.mana_audio:PlaySoundFromEntity({
     audioName = {'myAudioName1', 'myAudioName2'},
     audioRef = 'myAudioRef',
     entity = PlayerPedId()
-    isNetworked = true, -- replicates sound to all clients
 })
 ```
 
@@ -39,7 +37,6 @@ Plays a sound originating from coordinates
     audioRef = 'myAudioRef',
     coords = vec3(0, 0, 0),
     range = 10,
-    isNetworked = true, -- replicates sound to all clients
 ```
 
 ## Server

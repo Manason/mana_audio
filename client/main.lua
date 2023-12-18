@@ -30,26 +30,7 @@ local function playSound(data)
     ReleaseScriptAudioBank()
 end
 
----@class PlaySoundExportParams: PlaySoundParams
----@field isNetworked boolean
-
----@param data PlaySoundExportParams
-exports('PlaySound', function(data)
-    if data.isNetworked then
-        TriggerServerEvent('mana_audio:server:playSound', {
-            audioBank = data.audioBank,
-            audioName = data.audioName,
-            audioRef = data.audioRef,
-        })
-    else
-        playSound({
-            audioBank = data.audioBank,
-            audioName = data.audioName,
-            audioRef = data.audioRef,
-        })
-
-    end
-end)
+exports('PlaySound', playSound)
 
 RegisterNetEvent('mana_audio:client:playSoundFromEntity', playSound)
 
@@ -71,22 +52,7 @@ local function playSoundFromEntity(data)
     ReleaseScriptAudioBank()
 end
 
----@class PlaySoundFromEntityExportParams: PlaySoundFromEntityParams
----@field isNetworked boolean
-
----@param data PlaySoundFromEntityExportParams
-exports('PlaySoundFromEntity', function(data)
-    if data.isNetworked then
-        TriggerServerEvent('mana_audio:server:playSoundFromEntity', {
-            audioBank = data.audioBank,
-            audioName = data.audioName,
-            audioRef = data.audioRef,
-            netId = NetworkGetNetworkIdFromEntity(data.entity)
-        })
-    else
-        playSoundFromEntity(data)
-    end
-end)
+exports('PlaySoundFromEntity', playSoundFromEntity)
 
 RegisterNetEvent('mana_audio:client:playSoundFromEntity', function(data)
     playSoundFromEntity({
@@ -116,28 +82,5 @@ local function playSoundFromCoords(data)
     ReleaseScriptAudioBank()
 end
 
----@class PlaySoundFromCoordsExportParams: PlaySoundFromCoordsParams
----@field isNetworked boolean
-
----@param data PlaySoundFromCoordsExportParams
-exports('PlaySoundFromCoords', function(data)
-    if data.isNetworked then
-        TriggerServerEvent('mana_audio:server:playSoundFromCoords', {
-            audioBank = data.audioBank,
-            audioName = data.audioName,
-            audioRef = data.audioRef,
-            coords = data.coords,
-            range = data.range,
-        })
-    else
-        playSoundFromCoords({
-            audioBank = data.audioBank,
-            audioName = data.audioName,
-            audioRef = data.audioRef,
-            coords = data.coords,
-            range = data.range,
-        })
-    end
-end)
-
+exports('PlaySoundFromCoords', playSoundFromCoords)
 RegisterNetEvent('mana_audio:client:playSoundFromCoords', playSoundFromCoords)
