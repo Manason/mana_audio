@@ -21,7 +21,7 @@ local function playSound(data)
         data.audioName = {data.audioName}
     end
     loadAudioBank(data.audioBank)
-    for i = 1, #data.audioBank do
+    for i = 1, #data.audioName do
         local audioName = data.audioName[i]
         local soundId = GetSoundId()
         PlaySoundFrontend(soundId, audioName, data.audioRef, false)
@@ -62,7 +62,7 @@ local function playSoundFromEntity(data)
         data.audioName = {data.audioName}
     end
     loadAudioBank(data.audioBank)
-    for i = 1, #data.audioBank do
+    for i = 1, #data.audioName do
         local audioName = data.audioName[i]
         local soundId = GetSoundId()
         PlaySoundFromEntity(soundId, audioName, data.entity, data.audioRef, false, false)
@@ -107,7 +107,7 @@ local function playSoundFromCoords(data)
         data.audioName = {data.audioName}
     end
     loadAudioBank(data.audioBank)
-    for i = 1, #data.audioBank do
+    for i = 1, #data.audioName do
         local audioName = data.audioName[i]
         local soundId = GetSoundId()
         PlaySoundFromCoord(soundId, audioName, data.coords.x, data.coords.y, data.coords.z, data.audioRef, false, data.range, false)

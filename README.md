@@ -77,5 +77,3 @@ Plays a sound originating from coordinates to all clients in range
     coords = vec3(0, 0, 0),
     range = 10,
 ```
-
-## Credits
