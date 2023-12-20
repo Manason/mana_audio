@@ -27,7 +27,7 @@ local function playSound(data)
         PlaySoundFrontend(soundId, audioName, data.audioRef, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseScriptAudioBank()
+    ReleaseNamedScriptAudioBank(data.audioBank)
 end
 
 exports('PlaySound', playSound)
