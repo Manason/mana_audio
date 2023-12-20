@@ -32,11 +32,13 @@ exports.mana_audio:PlaySoundFromEntity({
 Plays a sound originating from coordinates
 
 ```lua
+exports.mana_audio:PlaySoundFromCoords({
     audioBank = 'myAudioBank',
     audioName = {'myAudioName1', 'myAudioName2'},
     audioRef = 'myAudioRef',
     coords = vec3(0, 0, 0),
     range = 10,
+})
 ```
 
 ## Server
@@ -68,9 +70,11 @@ exports.mana_audio:PlaySoundFromEntity({
 Plays a sound originating from coordinates to all clients in range
 
 ```lua
+exports.mana_audio:PlaySoundFromCoords({
     audioBank = 'myAudioBank',
     audioName = {'myAudioName1', 'myAudioName2'},
     audioRef = 'myAudioRef',
     coords = vec3(0, 0, 0),
     range = 10,
+})
 ```
