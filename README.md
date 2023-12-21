@@ -3,6 +3,9 @@ API for playing native audio.
 
 Thanks to PrinceAlbert, Demi-Automatic, ChatDisabled, Joe Szymkowicz, and Zoo
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O5O0NX2Q4)
+
+
 ## Client
 
 ### PlaySound
