@@ -49,7 +49,7 @@ local function playSoundFromEntity(data)
         PlaySoundFromEntity(soundId, audioName, data.entity, data.audioRef, false, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseScriptAudioBank()
+    ReleaseNamedScriptAudioBank(data.audioBank)
 end
 
 exports('PlaySoundFromEntity', playSoundFromEntity)
@@ -79,7 +79,7 @@ local function playSoundFromCoords(data)
         PlaySoundFromCoord(soundId, audioName, data.coords.x, data.coords.y, data.coords.z, data.audioRef, false, data.range, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseScriptAudioBank()
+    ReleaseNamedScriptAudioBank(data.audioBank)
 end
 
 exports('PlaySoundFromCoords', playSoundFromCoords)
