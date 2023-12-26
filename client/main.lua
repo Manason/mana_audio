@@ -1,4 +1,5 @@
 local function loadAudioBank(audioBank)
+    if not audioBank then return end
     local timeout = 500
     while not RequestScriptAudioBank(audioBank, false) do
         if timeout == 0 then
@@ -11,8 +12,13 @@ local function loadAudioBank(audioBank)
     return true
 end
 
+local function releaseAudioBank(audioBank)
+    if not audioBank then return end
+    ReleaseNamedScriptAudioBank(audioBank)
+end
+
 ---@class PlaySoundParams
----@field audioBank string
+---@field audioBank? string
 ---@field audioName string|string[]
 ---@field audioRef string
 
@@ -27,12 +33,12 @@ local function playSound(data)
         PlaySoundFrontend(soundId, audioName, data.audioRef, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseNamedScriptAudioBank(data.audioBank)
+    releaseAudioBank(data.audioBank)
 end
 
 exports('PlaySound', playSound)
 
-RegisterNetEvent('mana_audio:client:playSoundFromEntity', playSound)
+RegisterNetEvent('mana_audio:client:playSound', playSound)
 
 ---@class PlaySoundFromEntityParams: PlaySoundParams
 ---@field entity number
@@ -49,7 +55,7 @@ local function playSoundFromEntity(data)
         PlaySoundFromEntity(soundId, audioName, data.entity, data.audioRef, false, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseNamedScriptAudioBank(data.audioBank)
+    releaseAudioBank(data.audioBank)
 end
 
 exports('PlaySoundFromEntity', playSoundFromEntity)
@@ -79,7 +85,7 @@ local function playSoundFromCoords(data)
         PlaySoundFromCoord(soundId, audioName, data.coords.x, data.coords.y, data.coords.z, data.audioRef, false, data.range, false)
         ReleaseSoundId(soundId)
     end
-    ReleaseNamedScriptAudioBank(data.audioBank)
+    releaseAudioBank(data.audioBank)
 end
 
 exports('PlaySoundFromCoords', playSoundFromCoords)
