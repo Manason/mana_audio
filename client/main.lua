@@ -45,6 +45,7 @@ RegisterNetEvent('mana_audio:client:playSound', playSound)
 
 ---@param data PlaySoundFromEntityParams
 local function playSoundFromEntity(data)
+    if not DoesEntityExist(data.entity) then return end
     if type(data.audioName) == 'string' then
         data.audioName = {data.audioName}
     end
