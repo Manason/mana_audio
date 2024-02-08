@@ -62,6 +62,7 @@ end
 exports('PlaySoundFromEntity', playSoundFromEntity)
 
 RegisterNetEvent('mana_audio:client:playSoundFromEntity', function(data)
+    if not NetworkDoesEntityExistWithNetworkId(data.netId) then return end
     playSoundFromEntity({
         audioBank = data.audioBank,
         audioName = data.audioName,
