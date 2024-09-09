@@ -27,11 +27,11 @@ jobs:
 
       - name: Bundle files
         run: |
+          rm -rf ./.github ./.vscode ./.git
           shopt -s extglob
-          mkdir -p ./temp/${{ github.event.repository.name }}
-          cp ./{README.md,fxmanifest.lua} ./temp/${{ github.event.repository.name }}
-          cp -r ./{client,bridge,configs,modules,servers} ./temp/${{ github.event.repository.name }}
-          cd ./temp && zip -r ../${{ github.event.repository.name }}.zip ./${{ github.event.repository.name }}
+          mkdir ./${{ github.event.repository.name }}
+          cp -r !(${{ github.event.repository.name }}) ${{ github.event.repository.name }}
+          zip -r ./${{ github.event.repository.name }}.zip ./${{ github.event.repository.name }}
 
       - name: Update CHANGELOG
         id: changelog
