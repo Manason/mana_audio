@@ -1,5 +1,5 @@
 # mana_audio
-API for playing native audio.
+API for playing native audio. Stopping audio early or looping are not supported. 
 
 Thanks to PrinceAlbert, Demi-Automatic, ChatDisabled, Joe Szymkowicz, and Zoo
 
