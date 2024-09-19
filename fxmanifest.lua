@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Manason'
 description 'API for playing native audio'
-version '1.0.0'
+version '1.1.1'
 
 server_scripts {
 	'server/*'
